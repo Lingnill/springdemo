@@ -1,12 +1,14 @@
 package com.springtest.springdemo.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-@RestController
+@Controller
 public class HelloController {
-    @RequestMapping("/hello")
+    @RequestMapping("/")
+    @ResponseBody
     public String hello(){
-        return "hello spring !老师辛苦啦～交作业！";
+        return "hello spring ！搭建好项目结构~";
     }
 }
