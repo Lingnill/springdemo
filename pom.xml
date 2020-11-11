@@ -44,6 +44,13 @@
             <version>2.3.5.RELEASE</version>
         </dependency>
 
+        <!--mybatis-generator-maven-plugin -->
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-maven-plugin</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+
 
         <dependency>
             <groupId>mysql</groupId>
@@ -73,6 +80,12 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <!--mybatis-generator-maven-plugin插件 -->
+                    <groupId>org.mybatis.generator</groupId>
+                    <artifactId>mybatis-generator-maven-plugin</artifactId>
+                    <version>1.4.0</version>
             </plugin>
         </plugins>
     </build>
