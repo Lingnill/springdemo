@@ -2,7 +2,7 @@ package com.springtest.springdemo.pojo.entity;
 
 import java.util.Date;
 
-public class userOrder {
+public class UserOrder {
     private String orderId;
 
     private Double allCost;

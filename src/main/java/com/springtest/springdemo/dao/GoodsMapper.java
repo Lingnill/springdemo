@@ -2,7 +2,14 @@ package com.springtest.springdemo.dao;
 
 import com.springtest.springdemo.pojo.entity.Goods;
 
+/**
+ * @author lingnill
+ * @param
+ * @return
+ */
+
 public interface GoodsMapper {
+
     int deleteByPrimaryKey(Integer goodsId);
 
     int insert(Goods record);

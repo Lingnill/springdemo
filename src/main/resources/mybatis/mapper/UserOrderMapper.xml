@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.springtest.springdemo.dao.userOrderMapper">
-  <resultMap id="BaseResultMap" type="com.springtest.springdemo.pojo.entity.userOrder">
+<mapper namespace="com.springtest.springdemo.dao.UserOrderMapper">
+  <resultMap id="BaseResultMap" type="com.springtest.springdemo.pojo.entity.UserOrder">
     <id column="order_id" jdbcType="VARCHAR" property="orderId" />
     <result column="all_cost" jdbcType="DOUBLE" property="allCost" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
@@ -26,7 +26,7 @@
     delete from user_order
     where order_id = #{orderId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.springtest.springdemo.pojo.entity.userOrder">
+  <insert id="insert" parameterType="com.springtest.springdemo.pojo.entity.UserOrder">
     insert into user_order (order_id, all_cost, create_time, 
       pay_time, receiver_phone, receiver_name, 
       receiver_address, pay_type, status
@@ -36,7 +36,7 @@
       #{receiverAddress,jdbcType=VARCHAR}, #{payType,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.springtest.springdemo.pojo.entity.userOrder">
+  <insert id="insertSelective" parameterType="com.springtest.springdemo.pojo.entity.UserOrder">
     insert into user_order
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="orderId != null">
@@ -97,7 +97,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.springtest.springdemo.pojo.entity.userOrder">
+  <update id="updateByPrimaryKeySelective" parameterType="com.springtest.springdemo.pojo.entity.UserOrder">
     update user_order
     <set>
       <if test="allCost != null">
@@ -127,7 +127,7 @@
     </set>
     where order_id = #{orderId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.springtest.springdemo.pojo.entity.userOrder">
+  <update id="updateByPrimaryKey" parameterType="com.springtest.springdemo.pojo.entity.UserOrder">
     update user_order
     set all_cost = #{allCost,jdbcType=DOUBLE},
       create_time = #{createTime,jdbcType=TIMESTAMP},

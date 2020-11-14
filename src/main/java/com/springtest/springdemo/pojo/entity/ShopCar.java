@@ -1,6 +1,6 @@
 package com.springtest.springdemo.pojo.entity;
 
-public class shopCar {
+public class ShopCar {
     private Integer shopCarId;
 
     private Integer userId;

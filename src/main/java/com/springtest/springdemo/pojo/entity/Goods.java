@@ -19,6 +19,10 @@ public class Goods {
 
     private Integer count;
 
+    private Integer evalutionCount;
+
+    private String merchantName;
+
     public Integer getGoodsId() {
         return goodsId;
     }
@@ -89,5 +93,21 @@ public class Goods {
 
     public void setCount(Integer count) {
         this.count = count;
+    }
+
+    public Integer getEvalutionCount() {
+        return evalutionCount;
+    }
+
+    public void setEvalutionCount(Integer evalutionCount) {
+        this.evalutionCount = evalutionCount;
+    }
+
+    public String getMerchantName() {
+        return merchantName;
+    }
+
+    public void setMerchantName(String merchantName) {
+        this.merchantName = merchantName == null ? null : merchantName.trim();
     }
 }

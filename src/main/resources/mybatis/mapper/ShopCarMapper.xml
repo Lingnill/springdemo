@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.springtest.springdemo.dao.shopCarMapper">
-  <resultMap id="BaseResultMap" type="com.springtest.springdemo.pojo.entity.shopCar">
+<mapper namespace="com.springtest.springdemo.dao.ShopCarMapper">
+  <resultMap id="BaseResultMap" type="com.springtest.springdemo.pojo.entity.ShopCar">
     <id column="shop_car_id" jdbcType="INTEGER" property="shopCarId" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
@@ -20,13 +20,13 @@
     delete from shop_car
     where shop_car_id = #{shopCarId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.springtest.springdemo.pojo.entity.shopCar">
+  <insert id="insert" parameterType="com.springtest.springdemo.pojo.entity.ShopCar">
     insert into shop_car (shop_car_id, user_id, goods_id, 
       count)
     values (#{shopCarId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{goodsId,jdbcType=INTEGER}, 
       #{count,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.springtest.springdemo.pojo.entity.shopCar">
+  <insert id="insertSelective" parameterType="com.springtest.springdemo.pojo.entity.ShopCar">
     insert into shop_car
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="shopCarId != null">
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.springtest.springdemo.pojo.entity.shopCar">
+  <update id="updateByPrimaryKeySelective" parameterType="com.springtest.springdemo.pojo.entity.ShopCar">
     update shop_car
     <set>
       <if test="userId != null">
@@ -72,7 +72,7 @@
     </set>
     where shop_car_id = #{shopCarId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.springtest.springdemo.pojo.entity.shopCar">
+  <update id="updateByPrimaryKey" parameterType="com.springtest.springdemo.pojo.entity.ShopCar">
     update shop_car
     set user_id = #{userId,jdbcType=INTEGER},
       goods_id = #{goodsId,jdbcType=INTEGER},

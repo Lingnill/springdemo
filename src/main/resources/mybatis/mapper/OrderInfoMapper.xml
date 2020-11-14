@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.springtest.springdemo.dao.orderInfoMapper">
-  <resultMap id="BaseResultMap" type="com.springtest.springdemo.pojo.entity.orderInfo">
+<mapper namespace="com.springtest.springdemo.dao.OrderInfoMapper">
+  <resultMap id="BaseResultMap" type="com.springtest.springdemo.pojo.entity.OrderInfo">
     <id column="order_info_id" jdbcType="INTEGER" property="orderInfoId" />
     <result column="order_id" jdbcType="VARCHAR" property="orderId" />
     <result column="origin_good_id" jdbcType="INTEGER" property="originGoodId" />
@@ -23,7 +23,7 @@
     delete from order_info
     where order_info_id = #{orderInfoId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.springtest.springdemo.pojo.entity.orderInfo">
+  <insert id="insert" parameterType="com.springtest.springdemo.pojo.entity.OrderInfo">
     insert into order_info (order_info_id, order_id, origin_good_id, 
       price, count, img, 
       old_price)
@@ -31,7 +31,7 @@
       #{price,jdbcType=DECIMAL}, #{count,jdbcType=INTEGER}, #{img,jdbcType=VARCHAR}, 
       #{oldPrice,jdbcType=DOUBLE})
   </insert>
-  <insert id="insertSelective" parameterType="com.springtest.springdemo.pojo.entity.orderInfo">
+  <insert id="insertSelective" parameterType="com.springtest.springdemo.pojo.entity.OrderInfo">
     insert into order_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="orderInfoId != null">
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.springtest.springdemo.pojo.entity.orderInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.springtest.springdemo.pojo.entity.OrderInfo">
     update order_info
     <set>
       <if test="orderId != null">
@@ -104,7 +104,7 @@
     </set>
     where order_info_id = #{orderInfoId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.springtest.springdemo.pojo.entity.orderInfo">
+  <update id="updateByPrimaryKey" parameterType="com.springtest.springdemo.pojo.entity.OrderInfo">
     update order_info
     set order_id = #{orderId,jdbcType=VARCHAR},
       origin_good_id = #{originGoodId,jdbcType=INTEGER},

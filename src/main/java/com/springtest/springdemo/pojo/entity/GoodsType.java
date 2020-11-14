@@ -1,6 +1,6 @@
 package com.springtest.springdemo.pojo.entity;
 
-public class goodsType {
+public class GoodsType {
     private Integer goodsTypeId;
 
     private Integer parentTypeId;

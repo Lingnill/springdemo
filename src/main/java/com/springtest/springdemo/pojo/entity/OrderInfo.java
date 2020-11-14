@@ -1,6 +1,6 @@
 package com.springtest.springdemo.pojo.entity;
 
-public class orderInfo {
+public class OrderInfo {
     private Integer orderInfoId;
 
     private String orderId;

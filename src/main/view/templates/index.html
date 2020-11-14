@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    #goods_title:hover{
+        color: red;
+        cursor: pointer;
+    }
+</style>
 <body>
+<!--//头部-->
 <div style="display: flex;align-items: center">
     <div style="width: 40%">
         <img src="/images/index/logo.png">
@@ -12,15 +19,39 @@
     <div style="width: 40%">
         <div style="display: flex;border: solid red 2px">
             <div style="width: 80%">
-            <input type="text" style="height: 30px;border: none;width: 100%">
+                <input type="text" style="height: 30px;border: none;width: 100%">
             </div>
             <div style="color: white;background: red;padding: 5px 20px;width: 20%;text-align: center">
                 搜索
             </div>
         </div>
     </div>
-    <div style="cursor: pointer;width: 20%;text-align: center;border: solid lightgray 1px;background: rgb(245,245,245);padding: 6px;color:red;margin-left:30px ">
+    <div style="cursor: pointer;;width: 20%;text-align: center;border: solid lightgray 1px;background: rgb(245,245,245);padding: 6px;color:red;margin-left:30px ">
         我的购物车(5)
+    </div>
+</div>
+<!--商品-->
+<div style="display: flex">
+    <div style="border:solid red;width: 20%">
+        <div style="display: flex;align-items: center" th:each="x:${#numbers.sequence(1,6)}">
+            <div>电子产品</div>
+            <div style="display: flex;flex-wrap: wrap">
+                <div style="margin: 5px">手机</div>
+                <div style="margin: 5px">电脑</div>
+                <div style="margin: 5px">遥控器</div>
+                <div style="margin: 5px">电子手表</div>
+            </div>
+        </div>
+    </div>
+    <div style="border: solid red;width: 80%;border: solid red;display: flex;padding: 20px 10px">
+        <div style="padding: 10px;border: solid lightgray 1px;box-shadow: 0 0 5px lightgray;width: 33%">
+            <div><img src="/images/index/phone.jpg"/></div>
+            <div style="color: orangered">¥<span style="font-size: 20px">4999</span></div>
+            <div id="goods_title">Apple iPhone 11 (A2223) 128GB 绿色 移动联通电信4G手机 双卡双待
+            </div>
+            <div style="color: orangered;font-size: 12px;font-weight: bold;padding: 5px">77万+<span style="color: gray">条评价</span></div>
+            <div style="color: gray;font-size: 12px;">商家</div>
+        </div>
     </div>
 </div>
 </body>
