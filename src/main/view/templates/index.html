@@ -9,6 +9,10 @@
         color: red;
         cursor: pointer;
     }
+    #loginBtn:hover{
+        color: red;
+        cursor: pointer;
+    }
 </style>
 <body>
 <!--//头部-->
@@ -29,6 +33,9 @@
     <div style="cursor: pointer;;width: 20%;text-align: center;border: solid lightgray 1px;background: rgb(245,245,245);padding: 6px;color:red;margin-left:30px ">
         我的购物车(5)
     </div>
+    <div onclick="window.location='/pages/front/loginPage'" id="loginBtn" style="cursor: pointer;;width: 50px;text-align: center;border: solid lightgray 1px;background: rgb(245,245,245);padding: 6px;margin-left:30px ">
+        登录
+    </div>
 </div>
 <!--商品-->
 <div style="display: flex">
@@ -43,14 +50,14 @@
             </div>
         </div>
     </div>
-    <div style="border: solid red;width: 80%;border: solid red;display: flex;padding: 20px 10px">
+    <div style="border: solid red;width: 80%;border: solid red;display: flex;padding: 20px 10px;" >
         <div style="padding: 10px;border: solid lightgray 1px;box-shadow: 0 0 5px lightgray;width: 33%">
             <div><img src="/images/index/phone.jpg"/></div>
             <div style="color: orangered">¥<span style="font-size: 20px">4999</span></div>
             <div id="goods_title">Apple iPhone 11 (A2223) 128GB 绿色 移动联通电信4G手机 双卡双待
             </div>
             <div style="color: orangered;font-size: 12px;font-weight: bold;padding: 5px">77万+<span style="color: gray">条评价</span></div>
-            <div style="color: gray;font-size: 12px;">商家</div>
+            <div style="color: gray;font-size: 12px;">小琳琳旗舰店</div>
         </div>
     </div>
 </div>
