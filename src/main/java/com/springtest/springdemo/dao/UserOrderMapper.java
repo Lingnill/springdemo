@@ -2,11 +2,6 @@ package com.springtest.springdemo.dao;
 
 import com.springtest.springdemo.pojo.entity.UserOrder;
 
-/**
- * @author lingnill
- * @param
- * @return
- */
 public interface UserOrderMapper {
     int deleteByPrimaryKey(String orderId);
 

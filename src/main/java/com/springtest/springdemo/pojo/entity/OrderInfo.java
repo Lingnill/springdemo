@@ -1,5 +1,8 @@
 package com.springtest.springdemo.pojo.entity;
 
+/**
+ * @author lingnill
+ */
 public class OrderInfo {
     private Integer orderInfoId;
 
@@ -7,7 +10,7 @@ public class OrderInfo {
 
     private Integer originGoodId;
 
-    private Long price;
+    private Double price;
 
     private Integer count;
 
@@ -39,11 +42,11 @@ public class OrderInfo {
         this.originGoodId = originGoodId;
     }
 
-    public Long getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

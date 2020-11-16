@@ -2,6 +2,9 @@ package com.springtest.springdemo.pojo.entity;
 
 import java.util.Date;
 
+/**
+ * @author lingnill
+ */
 public class UserOrder {
     private String orderId;
 

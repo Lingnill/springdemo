@@ -7,9 +7,9 @@
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="img" jdbcType="VARCHAR" property="img" />
     <result column="old_price" jdbcType="DOUBLE" property="oldPrice" />
-    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
     <result column="on_sale" jdbcType="VARCHAR" property="onSale" />
-    <result column="detail" jdbcType="INTEGER" property="detail" />
+    <result column="detail" jdbcType="VARCHAR" property="detail" />
     <result column="count" jdbcType="INTEGER" property="count" />
     <result column="evalution_count" jdbcType="INTEGER" property="evalutionCount" />
     <result column="merchant_name" jdbcType="VARCHAR" property="merchantName" />
@@ -34,8 +34,8 @@
       on_sale, detail, count, 
       evalution_count, merchant_name)
     values (#{goodsId,jdbcType=INTEGER}, #{goodsTypeId,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
-      #{img,jdbcType=VARCHAR}, #{oldPrice,jdbcType=DOUBLE}, #{price,jdbcType=DECIMAL}, 
-      #{onSale,jdbcType=VARCHAR}, #{detail,jdbcType=INTEGER}, #{count,jdbcType=INTEGER}, 
+      #{img,jdbcType=VARCHAR}, #{oldPrice,jdbcType=DOUBLE}, #{price,jdbcType=DOUBLE}, 
+      #{onSale,jdbcType=VARCHAR}, #{detail,jdbcType=VARCHAR}, #{count,jdbcType=INTEGER}, 
       #{evalutionCount,jdbcType=INTEGER}, #{merchantName,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.springtest.springdemo.pojo.entity.Goods">
@@ -92,13 +92,13 @@
         #{oldPrice,jdbcType=DOUBLE},
       </if>
       <if test="price != null">
-        #{price,jdbcType=DECIMAL},
+        #{price,jdbcType=DOUBLE},
       </if>
       <if test="onSale != null">
         #{onSale,jdbcType=VARCHAR},
       </if>
       <if test="detail != null">
-        #{detail,jdbcType=INTEGER},
+        #{detail,jdbcType=VARCHAR},
       </if>
       <if test="count != null">
         #{count,jdbcType=INTEGER},
@@ -127,13 +127,13 @@
         old_price = #{oldPrice,jdbcType=DOUBLE},
       </if>
       <if test="price != null">
-        price = #{price,jdbcType=DECIMAL},
+        price = #{price,jdbcType=DOUBLE},
       </if>
       <if test="onSale != null">
         on_sale = #{onSale,jdbcType=VARCHAR},
       </if>
       <if test="detail != null">
-        detail = #{detail,jdbcType=INTEGER},
+        detail = #{detail,jdbcType=VARCHAR},
       </if>
       <if test="count != null">
         count = #{count,jdbcType=INTEGER},
@@ -153,9 +153,9 @@
       title = #{title,jdbcType=VARCHAR},
       img = #{img,jdbcType=VARCHAR},
       old_price = #{oldPrice,jdbcType=DOUBLE},
-      price = #{price,jdbcType=DECIMAL},
+      price = #{price,jdbcType=DOUBLE},
       on_sale = #{onSale,jdbcType=VARCHAR},
-      detail = #{detail,jdbcType=INTEGER},
+      detail = #{detail,jdbcType=VARCHAR},
       count = #{count,jdbcType=INTEGER},
       evalution_count = #{evalutionCount,jdbcType=INTEGER},
       merchant_name = #{merchantName,jdbcType=VARCHAR}

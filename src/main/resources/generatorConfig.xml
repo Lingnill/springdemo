@@ -36,7 +36,7 @@
         </sqlMapGenerator>
 
         <!-- targetPackage 和 targetProject：生成的 interface 文件的包和位置 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.springtest.springdemo.dao"  targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.springtest.springdemo.dao" targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 

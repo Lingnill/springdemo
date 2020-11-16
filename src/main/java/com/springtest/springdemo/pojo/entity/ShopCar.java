@@ -1,5 +1,8 @@
 package com.springtest.springdemo.pojo.entity;
 
+/**
+ * @author lingnill
+ */
 public class ShopCar {
     private Integer shopCarId;
 

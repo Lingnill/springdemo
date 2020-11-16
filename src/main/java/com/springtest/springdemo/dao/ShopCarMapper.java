@@ -2,11 +2,6 @@ package com.springtest.springdemo.dao;
 
 import com.springtest.springdemo.pojo.entity.ShopCar;
 
-/**
- * @author lingnill
- * @param
- * @return
- */
 public interface ShopCarMapper {
     int deleteByPrimaryKey(Integer shopCarId);
 

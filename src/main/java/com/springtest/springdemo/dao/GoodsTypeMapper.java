@@ -2,11 +2,6 @@ package com.springtest.springdemo.dao;
 
 import com.springtest.springdemo.pojo.entity.GoodsType;
 
-/**
- * @author lingnill
- * @param
- * @return
- */
 public interface GoodsTypeMapper {
     int deleteByPrimaryKey(Integer goodsTypeId);
 

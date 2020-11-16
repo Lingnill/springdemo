@@ -1,5 +1,8 @@
 package com.springtest.springdemo.pojo.entity;
 
+/**
+ * @author lingnill
+ */
 public class Goods {
     private Integer goodsId;
 
@@ -11,11 +14,11 @@ public class Goods {
 
     private Double oldPrice;
 
-    private Long price;
+    private Double price;
 
     private String onSale;
 
-    private Integer detail;
+    private String detail;
 
     private Integer count;
 
@@ -63,11 +66,11 @@ public class Goods {
         this.oldPrice = oldPrice;
     }
 
-    public Long getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -79,12 +82,12 @@ public class Goods {
         this.onSale = onSale == null ? null : onSale.trim();
     }
 
-    public Integer getDetail() {
+    public String getDetail() {
         return detail;
     }
 
-    public void setDetail(Integer detail) {
-        this.detail = detail;
+    public void setDetail(String detail) {
+        this.detail = detail == null ? null : detail.trim();
     }
 
     public Integer getCount() {

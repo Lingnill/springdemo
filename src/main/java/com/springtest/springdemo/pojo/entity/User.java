@@ -2,6 +2,9 @@ package com.springtest.springdemo.pojo.entity;
 
 import java.util.Date;
 
+/**
+ * @author lingnill
+ */
 public class User {
     private Integer userId;
 
