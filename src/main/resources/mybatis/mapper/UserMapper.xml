@@ -19,15 +19,16 @@
     from user
     where user_id = #{userId,jdbcType=INTEGER}
   </select>
-  <select id="selectByPhone" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    <include refid="Base_Column_List" />
-    from user
-    where phone = #{phone,jdbcType=VARCHAR}
-  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from user
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
+  <select id="selectByPhone" resultType="com.springtest.springdemo.pojo.entity.User" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where phone = #{phone}
+  </select>
   <insert id="insert" parameterType="com.springtest.springdemo.pojo.entity.User">
     insert into user (user_id, nick_name, real_name, 
       phone, password, last_login_time, 

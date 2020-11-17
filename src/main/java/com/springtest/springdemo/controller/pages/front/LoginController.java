@@ -4,6 +4,7 @@ import com.springtest.springdemo.pojo.entity.User;
 import com.springtest.springdemo.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -16,6 +17,7 @@ import javax.annotation.Resource;
 public class LoginController {
     @Resource
     UserService userService;
+
     @RequestMapping("loginPage")
     String loginPage(){
         return "pages/front/login/loginPage";

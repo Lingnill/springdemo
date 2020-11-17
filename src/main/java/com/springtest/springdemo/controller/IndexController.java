@@ -36,6 +36,9 @@ public class IndexController {
         Goods goods = goodsMapper.selectByPrimaryKey(2);
         return goods;
     }
-
-
+    @GetMapping(value = "/phone")
+    public User getPhone(){
+        User user = userMapper.selectByPhone("18883362500");
+        return user;
+    }
 }
