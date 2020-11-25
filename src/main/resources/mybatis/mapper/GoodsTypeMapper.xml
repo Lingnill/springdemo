@@ -16,6 +16,24 @@
     from goods_type
     where goods_type_id = #{goodsTypeId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectTypesByParentId" resultType="com.springtest.springdemo.pojo.vo.GoodsTypeVO"
+          parameterType="int" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from goods_type
+    where parent_type_id = #{parentTypeId}
+  </select>
+
+  <select id="selectTypesByParentIds" resultType="com.springtest.springdemo.pojo.vo.GoodsTypeVO"
+          parameterType="java.util.List">
+    select <include refid="Base_Column_List" />
+    from goods_type
+    where parent_type_id in
+    <foreach collection="parentTypes" item="g" separator="," close=")" open="(">
+      #{g.goodsTypeId}
+    </foreach>
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from goods_type
     where goods_type_id = #{goodsTypeId,jdbcType=INTEGER}

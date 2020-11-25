@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>小琳琳旗舰店后台管理</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<link rel="stylesheet" th:href="@{/layui/css/layui.css}">
+<script type="text/javascript" th:src="@{/layui/layui.js}"></script>
+<body class="layui-card-body layui-card" style="padding: 20px">
+<div>
+    <form class="layui-form" id="goodsForm" action="">
+        <div class="layui-form-item">
+            <label class="layui-form-label">商品类型</label>
+            <div class="layui-input-block" style="width: 200px">
+                <select name="parentTypeId" lay-filter="aihao">
+                    <option value="-1">一级类型</option>
+                    <option th:value="${t.goodsTypeId}" th:each="t:${types}" th:text="${t.typeName}">写作</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">类型名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="typeName" class="layui-input" style="width: 200px">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">排序</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="sort" class="layui-input" style="width: 200px">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="button" id="commit" class="layui-btn" lay-submit lay-filter="typeForm" >确定</button>
+                <button type="reset" class="layui-btn layui-btn-primary">取消</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+<script th:inline="javascript" type="text/javascript">
+
+    layui.use('form', function(){
+        var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+        //但是，如果你的HTML是动态生成的，自动渲染就会失效
+        //因此你需要在相应的地方，执行下述方法来进行渲染
+        form.render();
+
+
+        form.on('submit(typeForm)',function (data){
+            let formData = new formData(data.form);
+            $.ajax({
+                url:"/pages/back/type/add",
+                contentType:false,
+                data:formData,
+                dataType:'json',
+                processData:false,
+                success:function (res){
+                    if (res.res) {
+                        layer.msg(res.msg);
+                    }
+                },
+                type:'post',
+            });
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

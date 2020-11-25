@@ -14,15 +14,10 @@
     <div class="layui-header">
         <div class="layui-logo">小琳琳天猫</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
-        <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item"><a href="">控制台</a></li>
-            <li class="layui-nav-item"><a href="">商品管理</a></li>
-            <li class="layui-nav-item"><a href="">用户</a></li>
-        </ul>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a href="javascript:;">
-                    贤心
+                    liingnill.li
                 </a>
             </li>
             <li class="layui-nav-item"><a href="">退了</a></li>
@@ -32,7 +27,7 @@
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-            <ul class="layui-nav layui-nav-tree"  id="sideMenu">
+            <ul class="layui-nav layui-nav-tree" id="sideMenu" >
                 <li class="layui-nav-item">
                     <a href="javascript:;" name="supperMarketMenu">
                         <cite> 商品管理 </cite>
@@ -44,6 +39,22 @@
                     </dl>
                     <dl class="layui-nav-child">
                         <dd data-name="button"><a th:href="@{/}">商品列表</a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+            <ul class="layui-nav layui-nav-tree"  id="sideMenu1">
+                <li class="layui-nav-item">
+                    <a href="javascript:;" name="supperMarketMenu">
+                        <cite> 类型管理 </cite>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd data-name="button">
+                            <a th:href="@{/pages/back/type/addPre}">添加类型</a>
+                        </dd>
+                    </dl>
+                    <dl class="layui-nav-child">
+                        <dd data-name="button"><a th:href="@{/}">类型列表</a>
                         </dd>
                     </dl>
                 </li>
@@ -66,10 +77,13 @@
 <script src="../src/layui.js"></script>
 <script>
     //JavaScript代码区域
-    layui.use('element', function(){
+    layui.use('element','form','layer','table', function(){
         var element = layui.element;
-
+        var form = layui.form;
+        var layer = layui.layer;
+        var table = layui.table;
     });
+
 </script>
 
 </body>
