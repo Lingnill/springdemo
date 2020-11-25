@@ -30,6 +30,7 @@ public class TypeServiceImpl implements TypeService {
 
     @Override
     public List<GoodsTypeVO> selectTypesByParentId(int i){
+
         List<GoodsTypeVO> parentTypes =goodsTypeMapper.selectTypesByParentId(i);
         List<GoodsTypeVO> childrenTypes = goodsTypeMapper.selectTypesByParentIds(parentTypes);
         Map<Integer,List<GoodsTypeVO>> collect =childrenTypes.stream().collect(Collectors.groupingBy(GoodsTypeVO::getParentTypeId));

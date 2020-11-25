@@ -18,7 +18,7 @@
   </select>
 
   <select id="selectTypesByParentId" resultType="com.springtest.springdemo.pojo.vo.GoodsTypeVO"
-          parameterType="int" resultMap="BaseResultMap">
+          parameterType="int">
     select <include refid="Base_Column_List" />
     from goods_type
     where parent_type_id = #{parentTypeId}
