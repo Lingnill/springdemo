@@ -2,7 +2,9 @@ package com.springtest.springdemo.controller.pages.back;
 
 import com.springtest.springdemo.pojo.entity.Goods;
 import com.springtest.springdemo.service.GoodsService;
+import com.springtest.springdemo.service.TypeService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,8 +20,12 @@ import java.util.Map;
 public class GoodsController {
     @Resource
     GoodsService goodsService;
+    @Resource
+    TypeService typeService;
+
     @RequestMapping("addPre")
-    String addPre(){
+    String addPre(Model model){
+        model.addAttribute("types",typeService.selectTypesByParentId(-1));
         return "pages/back/goods/goods-addPre";
     }
 
