@@ -2,6 +2,7 @@ package com.springtest.springdemo.controller;
 import com.springtest.springdemo.dao.GoodsMapper;
 import com.springtest.springdemo.dao.GoodsTypeMapper;
 import com.springtest.springdemo.dao.UserMapper;
+import com.springtest.springdemo.pojo.dto.ResponseDTO;
 import com.springtest.springdemo.pojo.entity.Goods;
 import com.springtest.springdemo.pojo.entity.GoodsType;
 import com.springtest.springdemo.pojo.entity.User;
@@ -57,5 +58,11 @@ public class IndexController {
     public List<GoodsTypeVO> getGoodsType(){
         List<GoodsTypeVO> goodsType = goodsTypeMapper.selectTypesByParentId(1);
         return goodsType;
+    }
+
+    @GetMapping(value = "/goodsid")
+    public List<Goods> getGoodsByTypeId(){
+        List<Goods> goods = goodsMapper.getGoodsByTypeId(4);
+        return goods;
     }
 }

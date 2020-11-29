@@ -18,6 +18,9 @@
         cursor: pointer;
     }
 </style>
+<link rel="stylesheet" th:href="@{/layui/css/layui.css}">
+<script type="text/javascript" th:src="@{/layui/layui.js}"></script>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 <body>
 <!--//头部-->
 <div style="display: flex;align-items: center">
@@ -42,8 +45,8 @@
     </div>
 </div>
 <!--商品-->
-<div style="display: flex">
-    <div style="border:solid red;width: 20%">
+<div style="display: flex;margin-top: 20px;">
+    <div style="border:solid red 1px;width: 20%">
         <div style="display: flex;align-items: center;padding: 5px" th:each="t:${types}">
             <div th:text="${t.typeName}" style="font-weight: bold;font-size: 16px">电子产品</div>
             <div style="display: flex;flex-wrap: wrap;margin-left: 20px;">
@@ -51,16 +54,54 @@
             </div>
         </div>
     </div>
-    <div style="border: solid red;width: 80%;border: solid red;display: flex;padding: 20px 10px;" >
-        <div style="padding: 10px;border: solid lightgray 1px;box-shadow: 0 0 5px lightgray;width: 33%">
-            <div><img src="/images/index/phone.jpg"/></div>
-            <div style="color: orangered">¥<span style="font-size: 20px">4999</span></div>
-            <div id="goods_title">Apple iPhone 11 (A2223) 128GB 绿色 移动联通电信4G手机 双卡双待
-            </div>
-            <div style="color: orangered;font-size: 12px;font-weight: bold;padding: 5px">77万+<span style="color: gray">条评价</span></div>
-            <div style="color: gray;font-size: 12px;">小琳琳旗舰店</div>
-        </div>
+    <div style="border: solid red 1px;width: 80%;display: flex;padding: 20px 10px;" id="goodsDiv" >
     </div>
 </div>
+<script th:inline="javascript" type="text/javascript">
+    layui.use(['table','form','layer'], function(){
+        var table = layui.table;
+        var layer = layui.layer;
+        var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+
+
+
+        $("[id^=type-]").click(function (){
+            let typeId = this.id.split('-')[1];
+            $("[id^=type-]").css({color: ''})
+            $(this).css({color:'red'})
+
+            $.post('/pages/back/goods/getGoodsByTypeId/'+typeId,{},function (res){
+                console.log(res);
+                let goodsDiv=$("#goodsDiv");
+                goodsDiv.empty();
+                if (res.res){
+                    let data = res.data;
+                    for (let x=0;x<data.length;x++){
+                        let g = data[x];
+                        let goodsItem=$("<div style=\"padding: 10px;border: solid lightgray 1px;box-shadow: 0 0 5px lightgray;width: 33%\">\n" +
+                            "            <div><img src='"+g.img+"'/></div>\n" +
+                            "            <div style=\"color: orangered\">¥<span style=\"font-size: 20px\">"+g.price+"</span></div>\n" +
+                            "            <div id=\"goods_title\">"+g.title+"\n" +
+                            "            </div>\n" +
+                            "            <div style=\"color: orangered;font-size: 12px;font-weight: bold;padding: 5px\">"+g.evalutionCount+"万+<span style=\"color: gray\">条评价</span></div>\n" +
+                            "            <div style=\"color: gray;font-size: 12px;\">"+g.merchantName+"</div>\n" +
+                            "        </div>")
+                        goodsDiv.append(goodsItem);
+                        goodsItem.click(function (){
+                            window.location='pages/front/goods/goodsDetail/'+g.goodsId;
+                        })
+                    }
+                }
+            });
+
+        })
+        $("[id^=type-]:eq(0)").click();
+
+
+
+
+    });
+
+</script>
 </body>
 </html>

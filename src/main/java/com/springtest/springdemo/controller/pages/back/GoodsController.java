@@ -1,10 +1,12 @@
 package com.springtest.springdemo.controller.pages.back;
 
+import com.springtest.springdemo.pojo.dto.ResponseDTO;
 import com.springtest.springdemo.pojo.entity.Goods;
 import com.springtest.springdemo.service.GoodsService;
 import com.springtest.springdemo.service.TypeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -33,5 +35,11 @@ public class GoodsController {
     @ResponseBody
     Map<String,Object> add(Goods goods){
         return goodsService.add(goods);
+    }
+
+    @RequestMapping("getGoodsByTypeId/{typeId}")
+    @ResponseBody
+    ResponseDTO getGoodsByTypeId(@PathVariable Integer typeId){
+        return goodsService.getGoodsByTypeId(typeId);
     }
 }

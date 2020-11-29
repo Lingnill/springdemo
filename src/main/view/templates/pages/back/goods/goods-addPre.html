@@ -16,7 +16,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">一级类型</label>
         <div class="layui-input-block" style="width: 200px">
-            <select  lay-filter="parentTypes">
+            <select  lay-filter="parentTypes" id="parentTypes">
                 <option th:value="${t.goodsTypeId}" th:each="t:${types}" th:text="${t.typeName}"></option>
             </select>
         </div>
@@ -26,6 +26,7 @@
         <label class="layui-form-label">商品类型</label>
         <div class="layui-input-block" style="width: 200px">
             <select name="goodsTypeId" id="goodsTypeId" lay-filter="goodsTypeId">
+                <option th:value="${t.goodsTypeId}" th:each="t:${types[0].childrenTypes}" th:text="${t.typeName}"></option>
             </select>
         </div>
     </div>
@@ -126,8 +127,9 @@
             let types = [[${types}]];
             console.log(pid);
             console.log(types);
-
             let childrenTypes ;
+
+            $("#goodsTypeId").empty();
 
             for (let x=0;x<types.length;x++){
                 let type=types[x];

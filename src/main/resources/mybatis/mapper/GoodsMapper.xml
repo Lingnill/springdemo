@@ -24,6 +24,12 @@
     from goods
     where goods_id = #{goodsId,jdbcType=INTEGER}
   </select>
+  <select id="getGoodsByTypeId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from goods
+    where goods_type_id = #{goodsTypeId}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from goods
     where goods_id = #{goodsId,jdbcType=INTEGER}
